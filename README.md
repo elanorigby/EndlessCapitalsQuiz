@@ -1,5 +1,5 @@
 # Endless Capitals Quiz
-True, it quizes you on both countries and capitals, but Endless Countries and Capitals Quiz is just too darn long.
+True, it quizes you on both countries and capitals, but "Endless Countries and Capitals Quiz" is just too darn long.
 
 ## Three modes
 1) Guess the capital by the country

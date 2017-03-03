@@ -6,7 +6,7 @@ True, it quizes you on both countries and capitals, but Endless Countries and Ca
 
 2) Guess the country by the capital
 
-3) Random (not yet implemented)
+3) Random (might ask either a country or capital each time)
 
 
 ### Plans

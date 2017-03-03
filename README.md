@@ -3,7 +3,9 @@ True, it quizes you on both countries and capitals, but Endless Countries and Ca
 
 ## Three modes
 1) Guess the capital by the country
+
 2) Guess the country by the capital
+
 3) Random (not yet implemented)
 
 

@@ -92,6 +92,45 @@ class CountriesQuiz(GuessLoop):
         self.question = self.printout.countries_q()
 
 
+class Randomly:
+
+    def __init__(self):
+        self.choices = (CapitalsQuiz, CountriesQuiz)
+
+    def __len__(self):
+        return len(self.choices)
+
+    def choose(self):
+        chosen = choice(self.choices)
+        return chosen()
+
+
+class Kind:
+
+    @staticmethod
+    def get_kind():
+        return input('Type 1 for capitals, 2 for countries, 3 for random, or Q to quit\n> ').strip().lower()
+
+    def __init__(self):
+        self.kind = self.get_kind()
+
+    def switchboard(self):
+        if self.kind == 'q':
+            Quiz.quit()
+        elif self.kind == '1':
+            return CapitalsQuiz
+        elif self.kind == '2':
+            return CountriesQuiz
+        elif self.kind == '3':
+            randomly = Randomly()
+            return randomly.choose
+        else:
+            print("Sorry, didn't catch that.")
+            self.kind = self.get_kind()
+            return self.switchboard()
+
+
+
 class Quiz:
 
     @staticmethod
@@ -99,21 +138,10 @@ class Quiz:
         print("Ta ta for now!")
         exit()
 
-    def get_kind(self):
-        kind = input('Type 1 for capitals, 2 for countries, or Q to quit\n> ').strip().lower()
-        if kind == 'q':
-            self.quit()
-        elif kind == '1':
-            return CapitalsQuiz
-        elif kind == '2':
-            return CountriesQuiz
-        else:
-            print("Sorry, didn't catch that.")
-            self.get_kind()
-
     def quiz_loop(self):
         PrintOut.welcome()
-        quiz_kind = self.get_kind()
+        kind = Kind()
+        quiz_kind = kind.switchboard()
         while True:
             quiz = quiz_kind()
             quiz.guess_loop()

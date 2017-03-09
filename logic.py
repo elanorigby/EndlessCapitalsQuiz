@@ -51,7 +51,7 @@ class PrintOut:
         print("Welcome to the Endless Countries and Capitals Quiz! Respond with Q anytime to quit.")
 
 
-class GuessLoop:
+class Quiz:
 
     def __init__(self, debug=False):
         self.debug = debug
@@ -72,7 +72,7 @@ class GuessLoop:
             self.guess_loop()
 
 
-class CapitalsQuiz(GuessLoop):
+class CapitalsQuiz(Quiz):
 
     def __init__(self):
         super(CapitalsQuiz, self).__init__()
@@ -82,7 +82,7 @@ class CapitalsQuiz(GuessLoop):
         self.question = self.printout.capitals_q()
 
 
-class CountriesQuiz(GuessLoop):
+class CountriesQuiz(Quiz):
 
     def __init__(self):
         super(CountriesQuiz, self).__init__()
@@ -116,7 +116,7 @@ class Kind:
 
     def switchboard(self):
         if self.kind == 'q':
-            Quiz.quit()
+            Quit.quit()
         elif self.kind == '1':
             return CapitalsQuiz
         elif self.kind == '2':
@@ -131,22 +131,19 @@ class Kind:
 
 
 
-class Quiz:
+class Quit:
 
     @staticmethod
     def quit():
         print("Ta ta for now!")
         exit()
 
-    def quiz_loop(self):
-        PrintOut.welcome()
-        kind = Kind()
-        quiz_kind = kind.switchboard()
-        while True:
-            quiz = quiz_kind()
-            quiz.guess_loop()
 
 
 if __name__ == '__main__':
-    test = Quiz()
-    test.quiz_loop()
+    PrintOut.welcome()
+    kind = Kind()
+    quiz_kind = kind.switchboard()
+    while True:
+        quiz = quiz_kind()
+        quiz.guess_loop()

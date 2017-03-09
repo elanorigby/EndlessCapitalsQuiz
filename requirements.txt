@@ -1,0 +1,6 @@
+appdirs==1.4.0
+packaging==16.8
+pyparsing==2.1.10
+randomdict==0.2.0
+six==1.10.0
+tinydb==3.2.2

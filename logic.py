@@ -1,30 +1,6 @@
 from sys import exit
 from random import choice
-from data import list_of_tups
-
-
-class Data:
-
-    def __init__(self):
-        self.TUPS = list_of_tups
-
-    def __len__(self):
-        return len(self.TUPS)
-
-    def grow_pair(self):
-        """ Pick a random capital and country pair from TUPS """
-        return choice(self.TUPS)
-
-    def capitals(self):
-        """ Assign the country to hint and the capital to correct_answer """
-        hint, correct_answer = self.grow_pair()
-        return correct_answer, hint
-
-    def countries(self):
-        """ Assign the country to correct_answer and the capital to hint """
-        correct_answer, hint = self.grow_pair()
-        return correct_answer, hint
-
+from data import Data
 
 class PrintOut:
 
@@ -41,7 +17,6 @@ class PrintOut:
     def congrats(self):
         print("Yes! {} is the capital of {}!".format(self.capital, self.country))
 
-
     @staticmethod
     def wrong():
         print("Sorry, that's not correct.")
@@ -53,7 +28,7 @@ class PrintOut:
 
 class Quiz:
 
-    def __init__(self, debug=False):
+    def __init__(self, debug=True):
         self.debug = debug
 
     def print_ans(self):

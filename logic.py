@@ -1,6 +1,7 @@
 from random import choice
 from data import Data
 
+
 class Quiz:
 
     def __init__(self):

@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
-    <title>Endless Capitals Quiz</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block title %}Endless Capitals Quiz{% endblock %}
+
+{% block content %}
     <h1>Endless Capitals and Countries Quiz</h1>
     <h3>Select your poison</h3>
-    <button>Capitals</button>
-    <button>Countries</button>
-    <button>Random</button>
-</body>
-</html>
+    <a href="capitals.html">Capitals</a>
+    <a href="countries.html">Countries</a>
+    <a href="random.html">Random</a>
+{% endblock %}

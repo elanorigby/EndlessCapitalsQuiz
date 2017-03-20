@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <!--<h3>{{ title }}</h3>-->
+    <h1>{{ question }}</h1>
+
+
+    <form action="/" method="post">
+        <table>
+            <tr>
+                <input type="text" name="user_answer" autofocus><br>
+             </tr>
+            <tr>
+                <a class="button">
+                    <input type="submit" value="Submit">
+                </a>
+           </tr>
+        </table>
+    </form>
+
+    <table>
+        <tr>
+        <td>
+        <a class="button" href="capitals">
+            <span class="away">Just Tell Me</span>
+            <span class="over">{{ correct_ans }}</span>
+        </a>
+        </td>
+        <td>
+        <a class="button" href="/">
+            <span class="away">Make It Stop</span>
+            <span class="over">Ok ok</span>
+        </a>
+        </td>
+        </tr>
+    </table>
+
+
+{% endblock %}

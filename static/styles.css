@@ -1,4 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+a {
+  text-decoration: none; }
+
+table {
+  margin: 20px; }
+
+input {
+  /* box-sizing: border-box; */
+  display: table;
+  height: 50px;
+  width: 100%; }
+
+input:focus {
+  outline: none; }
+
+input[type=text] {
+  padding: 12px 20px;
+  font-size: 1.5em;
+  font-family: Montserrat;
+  /* border: 3px solid $button-color; */ }
+
+input[type=submit] {
+  color: white;
+  background-color: #2D3142;
+  font-family: Montserrat;
+  font-size: 1em;
+  border: none; }
+
 body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fa8072;
+  flex-direction: column;
+  color: white;
+  font-family: Montserrat; }
+
+h3 {
+  margin-top: -20px; }
+
+.button {
+  box-sizing: border-box;
+  height: 50px;
+  width: 200px;
+  display: table;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+  transition: background .5s;
+  cursor: pointer; }
+  .button span {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #2D3142;
+    box-shadow: 0 0 0 3px #2D3142 inset;
+    background: transparent; }
+  .button .away {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center; }
+  .button .over {
+    display: none; }
+  .button:hover span.away {
+    display: none; }
+  .button:hover span.over {
+    display: table-cell;
+    vertical-align: middle;
     text-align: center;
-    background: pink;
-    }
+    color: white;
+    box-shadow: none; }
+  .button:hover {
+    background: #2D3142; }
+
+/*# sourceMappingURL=styles.css.map */

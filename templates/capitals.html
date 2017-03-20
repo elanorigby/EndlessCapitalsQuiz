@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
-    <title>Endless Capitals Quiz</title>
-</head>
-<body>
-    <h3>Endless Capitals Quiz</h3>
-    <h1>What is the capital of {thingy}?</h1>
+{% extends "layout.html" %}
 
-    <form action="/action_page.php" method="get">
-    <input type="text" name="user_answer"><br>
-    <input type="submit" value="Submit">
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <h2>{{ title }}</h2>
+    <h1>What is the capital of {{ hint }}?</h1>
+
+    <form action="/" method="post">
+        <input type="text" name="user_answer"><br>
+        <input type="submit" value="Submit">
+
+        <button type="submit" name="tell">Just tell me</button>
+        <button type="submit" name="quit">Please stop</button>
     </form>
-    <button>Just tell me</button>
 
-</body>
-</html>
+{% endblock %}

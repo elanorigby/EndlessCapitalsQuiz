@@ -1,11 +1,31 @@
 {% extends "layout.html" %}
 
-{% block title %}Endless Capitals Quiz{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     <h1>Endless Capitals and Countries Quiz</h1>
     <h3>Select your poison</h3>
-    <a href="capitals.html">Capitals</a>
-    <a href="countries.html">Countries</a>
-    <a href="random.html">Random</a>
+
+    <table>
+    <tr>
+    <td>
+        <a class="button" href="capitals">
+            <span class="away" >Capitals</span>
+            <span class="over">Capitals</span>
+        </a>
+    </td>
+    <td>
+        <a class="button" href="countries">
+            <span class="away">Countries</span>
+            <span class="over">Countries</span>
+        </a>
+    </td>
+    <td>
+        <a class="button" href="random">
+            <span class="away">Random</span>
+            <span class="over">Random</span>
+        </a>
+    </td>
+    </tr>
+    </table>
 {% endblock %}

@@ -36,6 +36,10 @@ input[type=submit] {
 }
 
 
+.hidden{
+    display: none !important;
+}
+
 body{
   height: 100vh;
   display: flex;
@@ -49,6 +53,13 @@ body{
 
 h3{
   margin-top: -20px;
+}
+
+#feedback {
+    color: white;
+    background-color: $button-color;
+    font-family: Montserrat;
+    border: none;
 }
 
 .button {

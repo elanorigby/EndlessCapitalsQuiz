@@ -1,42 +1,71 @@
 {% extends "layout.html" %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}Endless {{ title }} Quiz{% endblock %}
+
+{% block script %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+    $(function() {
+        $('#submit_btn').click(function(e) {
+            e.preventDefault();
+            var user_answer = $('#user_answer').val();
+            var correct_answer = '{{ correct_answer }}';
+            console.log(user_answer);
+
+            if (user_answer.toLowerCase() ===  correct_answer.toLowerCase()){
+                $('#feedback').text("Yessss!!!!!");
+                $('#next-btn').removeClass('hidden');
+            } else {
+                $('#feedback').text("Nope.");
+                $('#next-btn').addClass('hidden');
+                $('#user_answer').val('');
+            }
+        });
+    });
+    </script>
+
+{% endblock %}
 
 {% block content %}
 
-    <!--<h3>{{ title }}</h3>-->
     <h1>{{ question }}</h1>
 
 
-    <form action="/" method="post">
-        <table>
-            <tr>
-                <input type="text" name="user_answer" autofocus><br>
-             </tr>
-            <tr>
-                <a class="button">
-                    <input type="submit" value="Submit">
-                </a>
-           </tr>
-        </table>
+    <div id='feedback'></div>
+
+
+    <form id="answer-form">
+        <input type="text" id="user_answer" autofocus><br>
+        <input class="button" type="button" id="submit_btn" value="Submit">
     </form>
 
+    <div>
+        <h4 id="showUserAnswer"></h4>
+    </div>
     <table>
         <tr>
         <td>
-        <a class="button" href="capitals">
-            <span class="away">Just Tell Me</span>
-            <span class="over">{{ correct_ans }}</span>
-        </a>
+            <a class="button" href="capitals">
+                <span class="away">Just Tell Me</span>
+                <span class="over">{{ correct_answer }}</span>
+            </a>
         </td>
+
         <td>
-        <a class="button" href="/">
-            <span class="away">Make It Stop</span>
-            <span class="over">Ok ok</span>
-        </a>
+            <a class="button" href="/">
+                <span class="away">Make It Stop</span>
+                <span class="over">Ok ok</span>
+            </a>
+        </td>
+
+        <td>
+            <a class="button hidden" id="next-btn" href="capitals">
+                <span class="away">Next</span>
+                <span class="over">Here we go!</span>
+            </a>
         </td>
         </tr>
     </table>
-
 
 {% endblock %}

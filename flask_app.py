@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-
+from flask import Flask, render_template
+from random import choice
 from logic import CapitalsQuiz, CountriesQuiz, RandomQuiz
 
 
@@ -8,43 +8,38 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    title = "Endless Capitals Quiz"
+    title = "Capitals"
     return render_template('index.html', title=title)
 
 
-@app.route("/capitals", methods=['GET', 'POST'])
+@app.route("/capitals", methods=["GET", "POST"])
 def capitals():
-    title = "Endless Capitals Quiz"
     quiz = CapitalsQuiz()
-    correct_ans = quiz.correct_answer
+
+    title = "Capitals"
+    correct_answer = quiz.correct_answer
     hint = quiz.hint
     question = "What is the capital of {}?".format(hint)
 
-    #
-    # user_answer = request.form.user_answer.strip().lower()
-    # if quiz.is_right(user_answer):
-    #     feedback = "Yes! {} is the capital of {}".format(correct_ans, hint)
-    # else:
-    #     feedback = "Nope. Try Again."
+    return render_template('quiz.html', title=title, question=question, correct_answer=correct_answer, hint=hint)
 
-    # tell = request.form.tell
-    # if tell:
 
-    # correct_ans=correct_ans, hint=hint, feedback=feedback,
+@app.route("/countries", methods=["GET", "POST"])
+def countries():
+    quiz = CountriesQuiz()
 
-    return render_template('quiz.html', title=title, question=question, correct_ans=correct_ans, hint=hint)
+    title = "Countries"
+    correct_answer = quiz.correct_answer
+    hint = quiz.hint
+    question = "{} is the capital of what country?".format(hint)
 
-#
-#
-# @app.route("/countries")
-# def countries():
-#     return render_template('countries.html')  # pass variables
-#
-#
-# @app.route("/random")
+    return render_template('quiz.html', title=title, question=question, correct_answer=correct_answer, hint=hint)
+
+# @app.route("/random", methods=["GET", "POST"])
 # def random():
-#     return render_template('random.html')  # pass variables
-#
-#
+#     random_quiz = random.choice(countries, capitals)
+#     random_quiz()
+
+
 if __name__ == "__main__":
     app.run()

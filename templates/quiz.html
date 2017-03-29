@@ -18,19 +18,21 @@
                 var correct_answer = '{{ correct_answer }}';
                 console.log(user_answer);
 
-                if (user_answer.toLowerCase() ===  correct_answer.toLowerCase()){
-                    $('#feedback').text("Yessss!!!!!");
-                    $('#next-btn').removeClass('hidden');
-                    $('#user_answer').keypress(function(e) {
-                        if (e.which === 13){
-                            location.reload();
-                        }
-                    });
+                if (user_answer != '') {
+                    if (user_answer.toLowerCase() === correct_answer.toLowerCase()){
+                        $('#feedback').text("Yessss!!!!!");
+                        $('#next-btn').removeClass('hidden');
+                        $('#user_answer').keypress(function(e) {
+                            if (e.which === 13){
+                                location.reload();
+                            }
+                        });
 
-                } else {
-                    $('#feedback').text("Nope.");
-                    $('#next-btn').addClass('hidden');
-                    $('#user_answer').val('');
+                    } else {
+                        $('#feedback').text("Nope.");
+                        $('#next-btn').addClass('hidden');
+                        $('#user_answer').val('');
+                    }
                 }
             }
         });

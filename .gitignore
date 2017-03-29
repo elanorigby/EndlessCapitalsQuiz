@@ -1,3 +1,5 @@
 .idea/
 __pycache__/
 dev/
+static/styles.css.map
+static/.sass-cache/

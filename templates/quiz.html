@@ -8,8 +8,10 @@
     <script>
     $(function() {
 
+        $('#next-btn').addClass('hidden');
+
         $('#user_answer').keypress(function(e) {
-            if (e.which == 13){
+            if (e.which === 13){
                 e.preventDefault();
 
                 var user_answer = $('#user_answer').val();
@@ -19,6 +21,12 @@
                 if (user_answer.toLowerCase() ===  correct_answer.toLowerCase()){
                     $('#feedback').text("Yessss!!!!!");
                     $('#next-btn').removeClass('hidden');
+                    $('#user_answer').keypress(function(e) {
+                        if (e.which === 13){
+                            location.reload();
+                        }
+                    });
+
                 } else {
                     $('#feedback').text("Nope.");
                     $('#next-btn').addClass('hidden');
@@ -26,7 +34,6 @@
                 }
             }
         });
-
     });
 
     </script>
@@ -37,12 +44,13 @@
 
     <h1>{{ question }}</h1>
 
-    <div id='feedback'></div>
 
     <form id="answer-form">
         <input type="text" id="user_answer" autofocus><br>
         <input class="button hidden" type="button" id="submit_btn" name="sub_btn" value="Submit">
     </form>
+
+    <div id='feedback'></div>
 
     <div>
         <h4 id="showUserAnswer"></h4>

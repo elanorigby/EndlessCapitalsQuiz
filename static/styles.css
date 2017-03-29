@@ -17,8 +17,7 @@ input:focus {
 input[type=text] {
   padding: 12px 20px;
   font-size: 1.5em;
-  font-family: Montserrat;
-  /* border: 3px solid $button-color; */ }
+  font-family: Montserrat; }
 
 input[type=submit] {
   color: white;
@@ -28,7 +27,7 @@ input[type=submit] {
   border: none; }
 
 .hidden {
-  display: none !important; }
+  visibility: hidden; }
 
 body {
   height: 100vh;
@@ -44,8 +43,10 @@ h3 {
   margin-top: -20px; }
 
 #feedback {
-  color: white;
-  background-color: #2D3142;
+  text-align: center;
+  font-size: 1.5em;
+  width: 100%;
+  color: #2D3142;
   font-family: Montserrat;
   border: none; }
 

@@ -18,6 +18,7 @@ class CapitalsQuiz(Quiz):
 
     def __init__(self):
         super(CapitalsQuiz, self).__init__()
+        self.name = 'Capitals'
         self.correct_answer, self.hint = self.data.capitals()
 
 
@@ -25,6 +26,7 @@ class CountriesQuiz(Quiz):
 
     def __init__(self):
         super(CountriesQuiz, self).__init__()
+        self.name = 'Countries'
         self.correct_answer, self.hint = self.data.countries()
 
 

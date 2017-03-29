@@ -4,7 +4,7 @@
 
 {% block styles %}
     <style>
-    body {background-color:{{ bkcolor }}; }
+        body {background-color:{{ bkcolor }}; }
     </style>
 {% endblock %}
 
@@ -13,8 +13,6 @@
 
     <script>
     $(function() {
-
-        $('#next-btn').addClass('hidden');
 
         $('#user_answer').keypress(function(e) {
             if (e.which === 13){
@@ -30,7 +28,7 @@
                         $('#next-btn').removeClass('hidden');
                         $('#user_answer').keypress(function(e) {
                             if (e.which === 13){
-                                location.reload();
+                                    location.reload();
                             }
                         });
 
@@ -68,7 +66,7 @@
     <table class="centered">
         <tr>
         <td>
-            <a class="button" href="capitals">
+            <a class="button" href="">
                 <span class="away">Just Tell Me</span>
                 <span class="over">{{ correct_answer }}</span>
             </a>

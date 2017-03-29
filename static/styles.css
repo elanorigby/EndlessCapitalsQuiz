@@ -1,4 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+h1 {
+  font-weight: bold; }
+
 a {
   text-decoration: none; }
 

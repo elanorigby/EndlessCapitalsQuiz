@@ -1,6 +1,11 @@
 @import  url(https://fonts.googleapis.com/css?family=Montserrat);
 $button-color: #2D3142;
 
+h1 {
+  //text-shadow: 2px 2px $button-color;
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
 }
@@ -53,7 +58,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  // background: #fa8072;
   flex-direction: column;
   color: white;
   font-family: Montserrat;

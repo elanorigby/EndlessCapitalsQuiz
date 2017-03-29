@@ -47,7 +47,7 @@
 
     <form id="answer-form">
         <input type="text" id="user_answer" autofocus><br>
-        <input class="button hidden" type="button" id="submit_btn" name="sub_btn" value="Submit">
+        <input class="hidden" type="button" id="submit_btn" name="sub_btn" value="Submit">
     </form>
 
     <div id='feedback'></div>
@@ -55,7 +55,9 @@
     <div>
         <h4 id="showUserAnswer"></h4>
     </div>
-    <table>
+
+    <div id="table_wrapper">
+    <table class="centered">
         <tr>
         <td>
             <a class="button" href="capitals">
@@ -71,13 +73,14 @@
             </a>
         </td>
 
-        <td>
-            <a class="button hidden" id="next-btn" href="capitals">
-                <span class="away">Next</span>
-                <span class="over">Here we go!</span>
-            </a>
-        </td>
+        <!--<td>-->
+            <!--<a class="button hidden" id="next-btn" href="capitals">-->
+                <!--<span class="away">Next</span>-->
+                <!--<span class="over">Here we go!</span>-->
+            <!--</a>-->
+        <!--</td>-->
         </tr>
     </table>
+    </div>
 
 {% endblock %}

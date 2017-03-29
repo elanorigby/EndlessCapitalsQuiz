@@ -26,6 +26,13 @@ input[type=submit] {
   font-size: 1em;
   border: none; }
 
+#table-wrapper {
+  width: 100%;
+  height: 50px; }
+
+.centered {
+  margin: 0 auto; }
+
 .hidden {
   visibility: hidden; }
 

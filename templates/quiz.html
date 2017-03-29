@@ -8,27 +8,22 @@
     <script>
     $(function() {
 
-        $('#submit_btn').click(function(e) {
-            e.preventDefault();
-
-            var user_answer = $('#user_answer').val();
-            var correct_answer = '{{ correct_answer }}';
-            console.log(user_answer);
-
-            if (user_answer.toLowerCase() ===  correct_answer.toLowerCase()){
-                $('#feedback').text("Yessss!!!!!");
-                $('#next-btn').removeClass('hidden');
-            } else {
-                $('#feedback').text("Nope.");
-                $('#next-btn').addClass('hidden');
-                $('#user_answer').val('');
-            }
-        });
-
         $('#user_answer').keypress(function(e) {
             if (e.which == 13){
-                $('input[name = sub_btn]').click();
-                return false;
+                e.preventDefault();
+
+                var user_answer = $('#user_answer').val();
+                var correct_answer = '{{ correct_answer }}';
+                console.log(user_answer);
+
+                if (user_answer.toLowerCase() ===  correct_answer.toLowerCase()){
+                    $('#feedback').text("Yessss!!!!!");
+                    $('#next-btn').removeClass('hidden');
+                } else {
+                    $('#feedback').text("Nope.");
+                    $('#next-btn').addClass('hidden');
+                    $('#user_answer').val('');
+                }
             }
         });
 
@@ -46,7 +41,7 @@
 
     <form id="answer-form">
         <input type="text" id="user_answer" autofocus><br>
-        <input class="button" type="button" id="submit_btn" name="sub_btn" value="Submit">
+        <input class="button hidden" type="button" id="submit_btn" name="sub_btn" value="Submit">
     </form>
 
     <div>

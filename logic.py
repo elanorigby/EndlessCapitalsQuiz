@@ -8,25 +8,22 @@ class Quiz:
         self.data = Data()
 
     def is_right(self, user_answer):
-        if user_answer == self.correct_answer.lower():
-            return True
-        else:
-            return False
+        return user_answer == self.correct_answer.lower()
 
 
 class CapitalsQuiz(Quiz):
+    name = 'Capitals'
 
     def __init__(self):
         super(CapitalsQuiz, self).__init__()
-        self.name = 'Capitals'
         self.correct_answer, self.hint = self.data.capitals()
 
 
 class CountriesQuiz(Quiz):
+    name = 'Countries'
 
     def __init__(self):
         super(CountriesQuiz, self).__init__()
-        self.name = 'Countries'
         self.correct_answer, self.hint = self.data.countries()
 
 

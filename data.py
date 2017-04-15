@@ -24,3 +24,11 @@ class Data:
         return correct_answer, hint
 
 
+
+
+# get a country and a capital from the db
+# sort based on quiz type
+# return them
+
+
+

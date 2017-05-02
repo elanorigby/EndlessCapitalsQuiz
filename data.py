@@ -30,4 +30,4 @@ class Data:
         elif kind == 'countries':
             return self.countries
         else:
-            ValueError("Not a valid kind of quiz.")
+            ValueError("Not a valid kind of quiz")

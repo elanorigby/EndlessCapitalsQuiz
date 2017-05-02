@@ -1,72 +1,50 @@
 from sys import exit
-from logic import CapitalsQuiz, CountriesQuiz, RandomQuiz
+from logic import Quiz
 
 
-class Quit:
+def intro():
+    kind = input("What kind of quiz u want? Capitals, Countries, or Random? \n Q to quit, h for a hint (the answer)").lower().strip()
 
-    @staticmethod
-    def quit():
-        print("Ta ta for now!")
-        exit()
+    if kind not in 'capitals countries random':
+        raise ValueError("not a valid quiz type")
 
+    def structure():
+        quiz = Quiz(kind)
 
-class Loop:
+        debug = False
 
-    def loop(self):
-        user_answer = input('> ').strip().lower()
-        if user_answer == 'q':
-            Quit.quit()
-        elif self.quiz.is_right(user_answer):
-            print("Yes! {} is the capital of {}! \n".format(self.capital, self.country))
-        else:
-            print("Nope. Try again.")
-            self.loop()
-
-    def start(self, debug=False):
-        print(self.question)
         if debug:
-            print("psst it's {}".format(self.quiz.correct_answer))
-        self.loop()
+            print('ans: ' + quiz.ans)
+            # print('  hint: ' + quiz.hint, end=' ')
+            # print('  kind: ' + quiz.kind, end='\n')
+
+        if quiz.kind == 'capitals':
+            question = "What is the capital of {}?"
+
+        if quiz.kind == 'countries':
+            question = "{} is the capital of what country?"
+
+        def loop():
+            guess = input(question.format(quiz.hint)).lower().strip()
+
+            if guess == 'q':
+                exit()
+
+            if guess == 'h':
+                print(quiz.ans)
+                loop()
+
+            if quiz.is_correct(guess):
+                print("Yes")
+                inner()
+            else:
+                print("Try again")
+                loop()
+
+        loop()
+
+    structure()
+
+intro()
 
 
-class Capitals(Loop):
-
-    def __init__(self):
-        super(Capitals, self).__init__()
-        self.quiz = CapitalsQuiz()
-        self.capital = self.quiz.correct_answer
-        self.country = self.quiz.hint
-        self.question = "What is the capital of {}?".format(self.country)
-
-
-class Countries(Loop):
-
-    def __init__(self):
-        super(Countries, self).__init__()
-        self.quiz = CountriesQuiz()
-        self.capital = self.quiz.hint
-        self.country = self.quiz.correct_answer
-        self.question = "What country is {} the capital of?".format(self.capital)
-
-
-
-def switchboard():
-    quiz_kind = input("Welcome to the Endless Capitals Quiz! Type 1 for Capitals, 2 for Countries, 3 for random, and Q to quit.\n >").strip().lower()
-    if quiz_kind == 'q':
-        Quit.quit()
-    elif quiz_kind == '1':
-        return Capitals
-    elif quiz_kind == '2':
-        return Countries
-    elif quiz_kind == '3':
-        randomly = RandomQuiz(Capitals, Countries)
-        return randomly.choose
-    else:
-        print("Sorry didn't catch that.")
-        switchboard()
-
-if __name__ == '__main__':
-    kind = switchboard()
-    while True:
-        quiz = kind()
-        quiz.start(debug=True)

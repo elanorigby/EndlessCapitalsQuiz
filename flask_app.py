@@ -14,11 +14,11 @@ def make_quiz(kind):
     ans = quiz.ans
     hint = quiz.hint
     bkcolor = get_color('light')
-
     return title, question, ans, hint, bkcolor
 
 
 app = Flask(__name__)
+
 
 @app.route("/")
 def index():

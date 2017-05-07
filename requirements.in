@@ -1,6 +1,5 @@
 # requirements.in
 flask
 tinydb
-flask-WTF
 randomcolor
 

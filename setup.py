@@ -1,4 +1,5 @@
 from setuptools import setup
+# https://packaging.python.org/distributing/#configuring-your-project
 
 setup(
 

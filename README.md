@@ -10,6 +10,6 @@ True, it quizes you on both countries and capitals, but "Endless Countries and C
 
 
 ### Plans
-This is currently a prototype that runs in the Python Shell, but I intend to slap a flask app onto it and host it on pythonanywhere.
+This is currently a prototype that runs in the Python Shell, but I intend to slap a flask app/ django app onto it and host it on pythonanywhere.
 
 And eventually, maybe, maybe make it an Android app so my auntie can use it on her phone.

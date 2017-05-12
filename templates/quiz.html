@@ -18,13 +18,13 @@
                 e.preventDefault();
 
                 var user_answer = $('#user_answer').val();
-                var correct_answer = '{{ correct_answer }}';
+                var correct_answer = '{{ ans }}';
                 console.log(user_answer);
 
-                if (user_answer != '') {
-                    if (user_answer.toLowerCase() === correct_answer.toLowerCase()){
+                if (user_answer != '' or user_answer != undefined) {
+                    if (if user_answer == correct_answer %}{    // maybe can python here?
                         $('#feedback').text("Yessss!!!!!");
-                        $('#next-btn').removeClass('hidden');
+                        // $('#next-btn').removeClass('hidden');
                         $('#user_answer').keypress(function(e) {
                             if (e.which === 13){
                                     location.reload();
@@ -63,7 +63,7 @@
         <td>
             <a class="button" href="">
                 <span class="away">Just Tell Me</span>
-                <span class="over">{{ correct_answer }}</span>
+                <span class="over">{{ ans }}</span>
             </a>
         </td>
 

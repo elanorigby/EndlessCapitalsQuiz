@@ -13,12 +13,19 @@ class Quiz:
         self.data = Data()
         self.ans, self.hint = self.data.gimmie(self.kind)
 
+        if self.kind == 'capitals':
+            self.question = "What is the capital of {}?".format(self.hint)
+
+        if self.kind == 'countries':
+            self.question = "{} is the capital of what country?".format(self.hint)
+
 
     def is_correct(self, guess):
         if guess == self.ans.lower():
             return True
         else:
             return False
+
 
 
 

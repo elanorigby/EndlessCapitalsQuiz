@@ -5,7 +5,7 @@ from logic import Quiz
 def intro():
     kind = input("What kind of quiz u want? Capitals, Countries, or Random? \n Q to quit, h for a hint (the answer)").lower().strip()
 
-    if kind not in 'capitals countries random':
+    if kind not in 'capitals countries random q':
         raise ValueError("not a valid quiz type")
 
     def structure():
@@ -17,6 +17,9 @@ def intro():
             print('ans: ' + quiz.ans)
             # print('  hint: ' + quiz.hint, end=' ')
             # print('  kind: ' + quiz.kind, end='\n')
+
+        if quiz.kind == 'q':
+            exit()
 
         if quiz.kind == 'capitals':
             question = "What is the capital of {}?"
@@ -36,7 +39,7 @@ def intro():
 
             if quiz.is_correct(guess):
                 print("Yes")
-                inner()
+                structure()
             else:
                 print("Try again")
                 loop()
@@ -46,5 +49,3 @@ def intro():
     structure()
 
 intro()
-
-

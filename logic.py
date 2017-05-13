@@ -32,9 +32,9 @@ class Quiz:
         if self.kind == 'countries':
             self.question = "{} is the capital of what country?".format(self.hint)
 
-
     def is_correct(self, guess):
-        if guess == self.ans.lower():
+        """ Don't only rely on this to clean up user input please. """
+        if guess.strip().lower() == self.ans.lower():
             return True
         else:
             return False

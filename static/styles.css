@@ -19,7 +19,7 @@ input:focus {
 input[type=text] {
   padding: 12px 20px;
   font-size: 1.5em;
-  font-family: Montserrat; }
+  font-family: Montserrat, serif; }
 
 input[type=submit] {
   color: white;

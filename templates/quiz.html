@@ -3,66 +3,13 @@
 {% block title %}Endless {{ title }} Quiz{% endblock %}
 
 {% block styles %}
+
     <style>
         body {background-color:{{ bkcolor }}; }
     </style>
-{% endblock %}
-
-{% block script %}
-
-    <script>
-    $(function() {
-        var ENTER_KEY = 13;
-        var answeredCorrectly = false;
-
-        $('#user_answer').keypress(function(e) {
-            if (e.which === ENTER_KEY) {
-                e.preventDefault();
-
-                // reload the page for a new answer
-                if (answeredCorrectly) {
-                    location.reload();
-                    return;
-                }
-
-                // check answer logic
-
-                var user_answer = $('#user_answer').val();
-
-                // TODO: refactor into separate file
-                // var correct = $('#correct_answer').val();
-                var correct_answer = '{{ ans }}';
-                console.log(user_answer);
-
-                if (! user_answer) {
-                    return;
-                }
-
-
-                if (user_answer.toLowerCase() === correct_answer.toLowerCase()) {
-                    $('#feedback').text("Yessss!!!!!");
-                    // $('#next-btn').removeClass('hidden');
-                    answeredCorrectly = true;
-                    /*
-                    $('#user_answer').keypress(function(e) {
-                        if (e.which === ENTER_KEY){
-                                location.reload();
-                        }
-                    });
-                    */
-
-                } else {
-                    $('#feedback').text("Nope.");
-                   // $('#next-btn').addClass('hidden');
-                    $('#user_answer').val('');
-                }
-            }
-        });
-    });
-
-    </script>
 
 {% endblock %}
+
 
 {% block content %}
 
@@ -97,5 +44,12 @@
             </tr>
         </table>
     </div>
+
+{% endblock %}
+
+
+{% block script %}
+
+    <script src="/static/quiz.js"></script>
 
 {% endblock %}

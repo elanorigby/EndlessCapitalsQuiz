@@ -2,22 +2,23 @@
 <html lang="en">
 
 <head>
-    {% block head %}
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
 
     {% block styles %}{% endblock %}
-
-
-
-    {% endblock %}
 </head>
 
 <body>
  <div id="content">{% block content %}{% endblock %}</div>
 
-  {% block script %}{% endblock %}
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+         crossorigin="anonymous">
+
+ </script>
+ {% block script %}{% endblock %}
 
 </body>
 

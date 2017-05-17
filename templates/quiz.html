@@ -9,33 +9,52 @@
 {% endblock %}
 
 {% block script %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <script>
     $(function() {
+        var ENTER_KEY = 13;
+        var answeredCorrectly = false;
+
         $('#user_answer').keypress(function(e) {
-            if (e.which === 13){
+            if (e.which === ENTER_KEY) {
                 e.preventDefault();
 
+                // reload the page for a new answer
+                if (answeredCorrectly) {
+                    location.reload();
+                    return;
+                }
+
+                // check answer logic
+
                 var user_answer = $('#user_answer').val();
+
+                // TODO: refactor into separate file
+                // var correct = $('#correct_answer').val();
                 var correct_answer = '{{ ans }}';
                 console.log(user_answer);
 
-                if (user_answer != '' or user_answer != undefined) {
-                    if (if user_answer == correct_answer %}{    // maybe can python here?
-                        $('#feedback').text("Yessss!!!!!");
-                        // $('#next-btn').removeClass('hidden');
-                        $('#user_answer').keypress(function(e) {
-                            if (e.which === 13){
-                                    location.reload();
-                            }
-                        });
+                if (! user_answer) {
+                    return;
+                }
 
-                    } else {
-                        $('#feedback').text("Nope.");
-                        $('#next-btn').addClass('hidden');
-                        $('#user_answer').val('');
-                    }
+
+                if (user_answer.toLowerCase() === correct_answer.toLowerCase()) {
+                    $('#feedback').text("Yessss!!!!!");
+                    // $('#next-btn').removeClass('hidden');
+                    answeredCorrectly = true;
+                    /*
+                    $('#user_answer').keypress(function(e) {
+                        if (e.which === ENTER_KEY){
+                                location.reload();
+                        }
+                    });
+                    */
+
+                } else {
+                    $('#feedback').text("Nope.");
+                   // $('#next-btn').addClass('hidden');
+                    $('#user_answer').val('');
                 }
             }
         });
@@ -51,31 +70,32 @@
 
 
     <form id="answer-form">
-        <input type="text" id="user_answer" autocomplete="off" autofocus><br>
-        <input class="hidden" type="button" id="submit_btn" name="sub_btn" value="Submit">
+        <input type="text" id="user_answer" autocomplete="off" autofocus>
+        <input class="hidden" id="submit_btn" name="sub_btn" value="Submit">
+        <input type="hidden" id="correct_answer" value="{{ ans }}" />
     </form>
 
     <div id='feedback'></div>
 
     <div id="table_wrapper">
-    <table class="centered">
-        <tr>
-        <td>
-            <a class="button" href="">
-                <span class="away">Just Tell Me</span>
-                <span class="over">{{ ans }}</span>
-            </a>
-        </td>
+        <table class="centered">
+            <tr>
+            <td>
+                <a class="button" href="">
+                    <span class="away">Just Tell Me</span>
+                    <span class="over">{{ ans }}</span>
+                </a>
+            </td>
 
-        <td>
-            <a class="button" href="/">
-                <span class="away">Make It Stop</span>
-                <span class="over">Take me home</span>
-            </a>
-        </td>
+            <td>
+                <a class="button" href="/">
+                    <span class="away">Make It Stop</span>
+                    <span class="over">Take me home</span>
+                </a>
+            </td>
 
-        </tr>
-    </table>
+            </tr>
+        </table>
     </div>
 
 {% endblock %}

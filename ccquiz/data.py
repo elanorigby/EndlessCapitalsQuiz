@@ -1,4 +1,3 @@
-
 from random import choice
 from tinydb import TinyDB
 
@@ -14,12 +13,14 @@ class Data:
 
     @property
     def capitals(self):
+        """ The capital is the answer and the country is the hint """
         ans = self.capital
         hint = self.country
         return ans, hint
 
     @property
     def countries(self):
+        """ The country is the answer and the capital is the hint """
         ans = self.country
         hint = self.capital
         return ans, hint

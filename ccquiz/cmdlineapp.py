@@ -1,5 +1,6 @@
 from sys import exit
-from logic import Quiz
+
+from ccquiz.logic import Quiz
 
 
 def intro():

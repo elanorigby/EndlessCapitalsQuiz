@@ -1,9 +1,10 @@
 from random import choice
-from data import Data
+from ccquiz.data import Data
+
 
 class Quiz:
     """
-     Pass in 'capitals', 'country', or 'random' (required)
+     Pass in 'capitals', 'countries', or 'random' (required)
      when you create an new instance.
      This will give you the properties
      - instance.kind
@@ -11,8 +12,7 @@ class Quiz:
      - instance.hint
      - instance.question
      and the method
-     - instance.is_correct(guess) -> returns True or False
-     to use in your project.
+     - instance.is_correct(guess) -> True or False
      """
 
     def __init__(self, kind):

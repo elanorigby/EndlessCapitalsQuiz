@@ -3,7 +3,7 @@ from tinydb import TinyDB
 
 
 class Data:
-    db = TinyDB('db.json')
+    db = TinyDB('ccquiz/db.json')
 
     def __init__(self):
         """ Pick a random capital and country pair from db """

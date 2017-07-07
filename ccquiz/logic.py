@@ -4,7 +4,7 @@ from ccquiz.data import Data
 
 class Quiz:
     """
-     Pass in 'capitals', 'countries', or 'random' (required)
+     Pass in 'capitals', 'countries', or 'random'
      when you create an new instance.
      This will give you the properties
      - instance.kind

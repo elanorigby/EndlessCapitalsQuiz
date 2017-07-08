@@ -1,24 +1,24 @@
 from ccquiz.logic import Quiz
 import pytest
 
-# capitals ---------
-# instantiate
-@pytest.fixture
-def caps():
-    return Quiz('capitals')
+@pytest.fixture(params=['capitals', 'countries', 'random'])
+def kind(request):
+    return Quiz(request.param)
 
-# assert quiz.ans -> true
-def test_ans_gets_true(caps):
-    """" pass answer as guess."""
-    assert caps.is_correct(caps.ans) == True
+def test_ans_gets_true(kind):
+    """" assert the answer == the answer """
+    assert kind.is_correct(kind.ans) == True
 
-# assert somebullshit -> false
-def test_wrong_gets_false(caps):
-    """" pass random bs as guess"""
-    assert caps.is_correct('Townsville') == False
 
-def test_country_gets_false(caps):
-    """" pass hint as guess"""
-    assert caps.is_correct(caps.hint) == False
+def test_wrong_gets_false(kind):
+    """" assert somebullshit != the answer """
+    assert kind.is_correct('Townsville') == False
 
+
+def test_hint_gets_false(kind):
+    """" assert the hint != the answer """
+    if kind == 'Monaco':
+        pass
+    else:
+        assert kind.is_correct(kind.hint) == False
 

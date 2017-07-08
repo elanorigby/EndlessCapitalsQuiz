@@ -3,9 +3,5 @@ __pycache__/
 dev/
 static/styles.css.map
 .sass-cache/
-ccquiz/data.py
-ccquiz/logic.py
-tests/data_test.py
-tests/logic_test.py
 .cache/
 tests/.cache/

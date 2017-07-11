@@ -1,3 +1,0 @@
-import ccquiz.cmdlineapp
-
-#

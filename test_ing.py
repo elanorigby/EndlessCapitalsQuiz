@@ -1,5 +1,6 @@
-from ccquiz.logic import Quiz
 import pytest
+from ccquiz.logic import Quiz
+
 
 @pytest.fixture(params=['capitals', 'countries', 'random'])
 def kind(request):

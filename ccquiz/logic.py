@@ -1,5 +1,5 @@
 from random import choice
-from ccquiz.data import Data
+from .data import Data
 
 
 class Quiz:
